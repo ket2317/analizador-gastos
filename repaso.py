@@ -22,6 +22,23 @@ def mas_caro (data):
 
 
     return caro
+
+def total_por_categoria(data):
+    totales = {}
+
+    for gasto in data:
+        categoria = gasto["categoria"]
+        if categoria not in totales:
+            totales[categoria] = gasto["monto"]
+        else:
+            totales[categoria] += gasto["monto"]
+
+
+
+    return totales
+
+
 print ("total de gasto: ",total(gastos))
 caro = mas_caro(gastos)
 print(caro["concepto"],caro["monto"])
+print (total_por_categoria(gastos))
